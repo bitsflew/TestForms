@@ -1,33 +1,62 @@
 //
-//  PTBFormView.swift
+//  Untitled.swift
 //  TestForms
 //
-//  Created by Henk on 19/01/2026.
+//  Created by Henk on 20/01/2026.
 //
+
+/*
+ ====================================================================
+ SOORT MEETMIDDEL
+ ====================================================================
+ CODE   Omschrijving
+ --------------------------------------------------------------------
+ emk    Afzuigunit (0-emissiekast)
+ mnm    Manometer
+ pdm    Pedaalkrachtmeter
+ prt    Platenremtestinrichting
+ r12    Rollenremtestinrichting klasse-1 en 2
+ rmt    Roetmeter
+ rt1    Rollenremtestinrichting klasse-1
+ rt2    Rollenremtestinrichting klasse-2
+ rvm    Remvertragingsmeter
+ vgm    Uitlaatgastester (Viergasmeter)
+ dlt    Deeltjesteller
+
+ ====================================================================
+ 12 RESULTAATBESTANDEN
+ ====================================================================
+
+ */
 
 import SwiftUI
 
-struct PTBFormModel: Codable {
-    var name = "Remmentestbank"
+struct DLTFormModel: Codable {
+    var name = "Deeltjesteller"
     
     var tests: [TestGroup] = [
         TestGroup(label: "Conformiteit", tests: [
             .passedFailed(PassedFailedTest(label: "Verzegeling onbeschadigd")),
-            .passedFailed(PassedFailedTest(label: "Typekeuringserst. met bijlage en doc. aanwezig")),
-            .passedFailed(PassedFailedTest(label: "Aanwezige printplaten en voedingsuni"))
-
+            .passedFailed(PassedFailedTest(label: "Typekeuringscert. met bijlage + doc. aanw.")),
+            .passedFailed(PassedFailedTest(label: "Merk en type power supply")),
+            .passedFailed(PassedFailedTest(label: "Merk en type power supply")),
+            .passedFailed(PassedFailedTest(label: "Aanwezige printplaten")),
+            .passedFailed(PassedFailedTest(label: "Meting onmogelijk tijdens opwarmen")),
+            .passedFailed(PassedFailedTest(label: "Softwareversie : 1.00")),
+            .passedFailed(PassedFailedTest(label: "Checksum : BD6C / 6F49")),
+            .passedFailed(PassedFailedTest(label: "Toelating en serienr. op afdruk aanwezig")),
+            .passedFailed(PassedFailedTest(label: "Lektest"))
         ]),
-        TestGroup(label: "Metingen", tests: [
-            .twoValue(TwoValueTest(label: "50")),
-            .twoValue(TwoValueTest(label: "100")),
-            .twoValue(TwoValueTest(label: "200")),
-            .twoValue(TwoValueTest(label: "300")),
-            .twoValue(TwoValueTest(label: "400")),
-            .twoValue(TwoValueTest(label: "500")),
-            .twoValue(TwoValueTest(label: "700")),
-            .twoValue(TwoValueTest(label: "800")),
-            .twoValue(TwoValueTest(label: "/00"))
-        ])
+        TestGroup(label: "Algemeenm", tests: [
+            .passedFailed(PassedFailedTest(label: "Omgevingstemperatuur +5 tot 40 °C")),
+            .passedFailed(PassedFailedTest(label: "NL handleiding en NL opschriften")),
+            .passedFailed(PassedFailedTest(label: "Voedingsspanning")),
+            .passedFailed(PassedFailedTest(label: "Electronische / mechanische werking")),
+            .passedFailed(PassedFailedTest(label: "Optische contr. / alle onderdelen aanwezig")),
+        ]),
+        TestGroup(label: "Lineariteitstest", tests: [
+         ])
+            
     ]
     
     var t1 = PassedFailedTest(label: "Verzegeling onbeschadigd")
@@ -66,9 +95,9 @@ struct PTBFormModel: Codable {
     }
 }
 
-struct PTBFormView: View {
+struct DLTFormView: View {
     @State
-    var testModel = PTBFormModel()
+    var testModel = DLTFormModel()
     var body: some View {
         Form {
             let passed = testModel.passed
