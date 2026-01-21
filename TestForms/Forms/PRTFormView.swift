@@ -29,6 +29,14 @@
 
  */
 
+/*
+ Maak een tabel met alle  controles en metingen die verplicht zijn  tijdens de jaarlijkse (her)certificering van een personenvoertuig APK meetapparatruur
+ Toon  voor de metingen de referentiewaarde, eenheid en toegestane tolerantie
+ toon de metingens als het laatst in de tabel
+ toon voor elke meting ook alle tussenstappen  inclusief de inputs
+ label controlers met controle and metingene met meting
+ Maak de tfabel een Platenremtestinrichting
+ */
 import SwiftUI
 
 struct PRTFormModel: Codable {

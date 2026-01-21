@@ -10,10 +10,34 @@
 		B66DEBD02F1E28CD00C447A7 /* TestForms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestForms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B66DEC732F20C90100C447A7 /* Exceptions for "DOC" folder in "TestForms" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Formulieren/DLT Capelec.pdf",
+				"Formulieren/EMK Jan3.pdf",
+				"Formulieren/PDM PKH3.0.pdf",
+				"Formulieren/PRT JNT15.pdf",
+				"Formulieren/RM Capelec.pdf",
+				"Formulieren/VRG Capelec fout .pdf",
+				"Formulieren/VRG Capelec.pdf",
+			);
+			target = B66DEBCF2F1E28CD00C447A7 /* TestForms */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B66DEBD22F1E28CD00C447A7 /* TestForms */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TestForms;
+			sourceTree = "<group>";
+		};
+		B66DEC6A2F20C8A300C447A7 /* DOC */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B66DEC732F20C90100C447A7 /* Exceptions for "DOC" folder in "TestForms" target */,
+			);
+			path = DOC;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +56,7 @@
 		B66DEBC72F1E28CD00C447A7 = {
 			isa = PBXGroup;
 			children = (
+				B66DEC6A2F20C8A300C447A7 /* DOC */,
 				B66DEBD22F1E28CD00C447A7 /* TestForms */,
 				B66DEBD12F1E28CD00C447A7 /* Products */,
 			);
@@ -62,6 +87,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				B66DEBD22F1E28CD00C447A7 /* TestForms */,
+				B66DEC6A2F20C8A300C447A7 /* DOC */,
 			);
 			name = TestForms;
 			packageProductDependencies = (
