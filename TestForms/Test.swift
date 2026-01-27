@@ -12,107 +12,79 @@ enum TestResult: Codable {
     case failed
 }
 
-protocol Test: Codable, Identifiable  {
-    var id: UUID { get  }
+protocol Test: Codable, Identifiable {
+    var id: UUID { get }
     var label: String { get }
-    var result: TestResult? { get  }
+    var result: TestResult? { get }
 }
 
-
-
-struct PassedFailedTest:   Test{
+struct PassedFailedTest: Test {
     let id = UUID()
     let label: String
     var measurement: TestResult?
-    
+
     private enum CodingKeys: String, CodingKey {
         case label
         case measurement
     }
-    
-    var result: TestResult?  {
-        get {
-            if let measurement {
-                return measurement
-            } else {
-                return nil
-            }
-        }
-    }
-}
 
-struct OneValueTest:  Test {
-    let id = UUID()
-    let label: String
-    var measurement: Double?
-    var value: Double?
-    
-    var result: TestResult?  {
-        nil
-    }
-    
-    private enum CodingKeys: String, CodingKey {
-        case id
-        case label
-        case measurement
-    }
-}
-
-func calcDiff(test: TwoValueTest) -> Double? {
-    if let measurement1 = test.measurement1,
-       let measurement2 = test.measurement2 {
-        return abs(measurement1 - measurement2)
-    } else {
-        return nil
-    }
-}
-
-
-
-struct TwoValueTest:  Test, Hashable {
-    let id = UUID()
-    let label: String
-    var v0: Double?
-    var measurement1: Double?
-    var measurement2: Double?
-    let evaluate: (Self) -> Double? = calcDiff
-    //let validate: (Double,Double,Double) -> Double?
-    var value: Double?  {
-        evaluate(self)
-    }
-    
-    var result: TestResult?  {
-        if let value {
-            if value <= 50 {
-                return .passed
-            } else {
-                return .failed
-            }
-              
+    var result: TestResult? {
+        if let measurement {
+            return measurement
         } else {
             return nil
         }
     }
-    
+}
+
+struct OneValueTest: Test {
+    let id = UUID()
+    let label: String
+    var measurement: Double?
+    var value: Double?
+
+    var result: TestResult? {
+        nil
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id
         case label
-        case measurement1
-        case measurement2
+        case measurement
     }
-    
-    func hash(into hasher: inout Hasher) {
-            hasher.combine(id)
-            hasher.combine(label)
-            hasher.combine(measurement1)
-            hasher.combine(measurement2)
+}
+
+struct TextTest: Test {
+    let id = UUID()
+    let label: String
+    let validInputs: [String]
+    var input: String?
+    var value: String? {
+        return nil
+    }
+
+    var result: TestResult? {
+        guard let input else {
+            return nil
         }
-    
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.id == rhs.id &&
-        lhs.label == rhs.label &&
-        lhs.measurement1 == rhs.measurement1 &&
-        lhs.measurement2 == rhs.measurement2
+        return validInputs.contains(input) ? .passed : .failed
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case label
+        case input
+        case validInputs
+    }
+}
+
+func calcDiff(test: TwoValueTest) -> Double? {
+    if let v2 = test.v2,
+       let v3 = test.v3
+    {
+        return abs(v2 - v3)
+    } else {
+        return nil
     }
 }
 
@@ -122,11 +94,11 @@ enum TestType: Codable {
 }
 
 struct TestGroup: Test {
-    var id: UUID = UUID()
+    var id: UUID = .init()
     var label: String
     var tests: [TestType]
-    
-    var result: TestResult?  {
+
+    var result: TestResult? {
         // all .passed = .passed
         // all nil = nil
         // some .failed = .failed
@@ -138,26 +110,23 @@ struct TestGroup: Test {
                 test.result
             }
         }
-        
+
         for result in results {
             if result == .failed {
                 return .failed
             }
-            
+
             if result == nil {
                 return nil
             }
         }
-        
+
         return .passed
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case id
         case label
         case tests
     }
-    
 }
-
-

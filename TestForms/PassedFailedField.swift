@@ -45,8 +45,8 @@ struct TwoValueField: View {
             Text(test.label)
             Spacer()
             
-            TextField("", value: $test.measurement1, format: .number)
-            TextField("", value: $test.measurement2, format: .number)
+            TextField("", value: $test.v2, format: .number)
+            TextField("", value: $test.v3, format: .number)
 
             if let result = test.value {
                 Text(result, format: .number)
@@ -89,12 +89,12 @@ struct TwoValueGridView: View {
             ForEach($tests) { $test in
                 Text(test.label)
                         
-                TextField("", value: $test.measurement1, format: .number)
+                TextField("", value: $test.v2, format: .number)
                     .multilineTextAlignment(.trailing)
                     .keyboardType(.numberPad)
                     .border(.gray, width: 1)
                         
-                TextField("", value: $test.measurement2, format: .number)
+                TextField("", value: $test.v3, format: .number)
                     .multilineTextAlignment(.trailing)
                     .keyboardType(.numberPad)
                     .border(.gray, width: 1)

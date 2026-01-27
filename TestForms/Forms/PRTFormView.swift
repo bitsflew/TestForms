@@ -58,6 +58,8 @@ struct PRTFormModel: Codable {
             
     ]
     
+    var t10 = TextTest(label: "text",validInputs: ["A","B"])
+    
     var t1 = PassedFailedTest(label: "Verzegeling onbeschadigd")
     var t2 = PassedFailedTest(label: "Typekeuringserst. met bijlage en doc. aanwezig")
     var t3 = PassedFailedTest(label: "Aanwezige printplaten en voedingsuni")
@@ -66,15 +68,15 @@ struct PRTFormModel: Codable {
     var t6 = PassedFailedTest(label: "Checksum: 7A46")
 
     var t20: [TwoValueTest] = [
-        TwoValueTest(label: "50", v0: 50),
-        TwoValueTest(label: "100", v0: 100),
-        TwoValueTest(label: "200", v0: 200),
-        TwoValueTest(label: "300", v0: 300),
-        TwoValueTest(label: "400", v0: 400),
-        TwoValueTest(label: "500", v0: 500),
-        TwoValueTest(label: "700", v0: 700),
-        TwoValueTest(label: "800", v0: 800),
-        TwoValueTest(label: "900", v0: 900)
+        TwoValueTest(label: "50", v1: 50),
+        TwoValueTest(label: "100", v1: 100),
+        TwoValueTest(label: "200", v1: 200),
+        TwoValueTest(label: "300", v1: 300),
+        TwoValueTest(label: "400", v1: 400),
+        TwoValueTest(label: "500", v1: 500),
+        TwoValueTest(label: "700", v1: 700),
+        TwoValueTest(label: "800", v1: 800),
+        TwoValueTest(label: "900", v1: 900)
     ]
    
     var passed: Bool {

@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B6B0BD0D2F28DD6700295C7C /* TwoValueTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0BD0C2F28DD6700295C7C /* TwoValueTest.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B66DEBD02F1E28CD00C447A7 /* TestForms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestForms.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6B0BD0C2F28DD6700295C7C /* TwoValueTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoValueTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -19,6 +24,7 @@
 				"Formulieren/PDM PKH3.0.pdf",
 				"Formulieren/PRT JNT15.pdf",
 				"Formulieren/RM Capelec.pdf",
+				"Formulieren/RVM keuring BM4010.pdf",
 				"Formulieren/VRG Capelec fout .pdf",
 				"Formulieren/VRG Capelec.pdf",
 			);
@@ -59,6 +65,7 @@
 				B66DEC6A2F20C8A300C447A7 /* DOC */,
 				B66DEBD22F1E28CD00C447A7 /* TestForms */,
 				B66DEBD12F1E28CD00C447A7 /* Products */,
+				B6B0BD0C2F28DD6700295C7C /* TwoValueTest.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B0BD0D2F28DD6700295C7C /* TwoValueTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
